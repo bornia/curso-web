@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Revisão </title>
+    <!--[if IE]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <header>
+        <h1> Cabeçalho </h1>
+    </header>
+    <nav>
+        <ul>
+            <li> Home </li>
+            <li> Apps </li>
+            <li> Contato </li>
+        </ul>
+    </nav>
+    <section>
+        <form>
+            <p>
+                <label for="nome" data-personalizado="Guilherme"> Nome: </label>
+                <input id="nome" type="text" placeholder="Fulano de Tal" />
+            </p>
+            <p>
+                <label for="email"> E-mail: </label>
+                <input id="email" type="email" placeholder="exemplo@dominio.com" required />
+            </p>
+            <p>
+                <label for="numero"> Quantidade: </label>
+                <input id="numero" type="number" min="1" max="10" step="2" />
+            </p>
+            <p>
+                <label for="link"> URL: </label>
+                <input id="link" type="url" placeholder="http://www.site.com.br" />
+            </p>
+            <p>
+                <label for="busca"> Pesquisa: </label>
+                <input id="busca" type="search" />
+            </p>
+            <p>
+                <label for="intervalo" data-customizado="Bornia"> Intervalo: </label>
+                <input id="intervalo" type="range" min="1" max="10" />
+            </p>
+            <p>
+                <label for="data"> Data: </label>
+                <input id="data" type="date" placeholder="" />
+            </p>
+            <p>
+                <label for="cor"> Cor: </label>
+                <input id="cor" type="color" placeholder="" />
+            </p>
+            <p>
+                <input type="submit" value="Enviar" />
+            </p>
+        </form>
+    </section>
+    <footer>
+        <h4> &copy; Direitos reservados - Guilherme Bornia </h4>
+    </footer>
+</body>
+
+</html>

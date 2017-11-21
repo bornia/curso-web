@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title> Cascading Style Sheets </title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		h1 {
+			color: orange;
+			font-size: 40px;
+		}
+
+		p {
+			color: gray;
+			border: 3px solid purple;
+		}
+
+		.paragrafo {
+			font-weight: bold;
+		}
+
+		#texto {
+			color: brown;
+			font-size: 2em; /* 1em = 16px = 100% ---- tamanho padrão */
+		}
+
+		#bordas {
+			/*border: 10px solid red;*/
+			/*border-color: red;
+			border-width: 10px;
+			border-style: solid;*/
+			border-color: red green yellow blue;
+			border-width: 12px 9px 6px 3px;
+			border-style: solid dotted dashed solid;
+		}
+
+		#fontes {
+			font-family: "Courier New", "Lucida Console", Monospace;
+			color: #FF0000;
+		}
+
+		#formatacao {
+			font: bold 40px "Courier New", "Lucida Console", Monospace;
+			text-decoration: line-through; /* underline OR overline */
+		}
+	</style>
+</head>
+
+<body>
+	<h1> Aprendendo CSS </h1>
+	<h2> CSS Inline </h2>
+	<p style="color: red; border: 1px solid green"> Este é um parágrafo. </p>
+	<p style="color: blue; border: 2px solid green"> Este é outro parágrago, mas azul. </p>
+
+	<h2> Seletores CSS </h2>
+	<p> Este é um parágrafo. </p>
+	<p> Este é outro parágrago. </p>
+
+	<h2> Classes e IDs </h2>
+	<p class="paragrafo"> Este é um parágrafo. </p>
+	<p id="texto"> Este é outro parágrago. </p>
+	<p class="paragrafo" id="texto"> Este é um parágrafo. </p>
+
+	<h2> Divs e Span </h2>
+	<!-- A tag div possui uma quebra de linha antes e depois de ser declarada; é um bloco com conteúdo. -->
+	<!-- A tag span não tem essas quebras de linhas. -->
+	<div style="background-color: gray">
+		O <span style="color: red;"> João </span> roubou 2 pães.
+	</div>
+
+	<h2> Bordas </h2>
+	<div id="bordas">
+		Conteúdo <br/>
+		Conteúdo <br/>
+		Conteúdo <br/>
+	</div>
+
+	<h2> Fontes e cores </h2>
+	<div id="fontes">
+		Conteúdo
+	</div>
+
+	<h2> Formatação de textos </h2>
+	<div>
+		<span id="formatacao"> Era uma vez um pé de feijão. </span>
+	</div>
+
+</body>
+
+</html>

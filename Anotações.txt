@@ -1,0 +1,268 @@
+Se?o 5 - CSS Intermedi?io
+
+	Posicionamento
+
+		O atributo "auto" na propriedade "margin" alinha o conteúdo ao centro da páina automaticamente. Ele não funciona com "margin-top" e "margin-bottom", mas com "margin-left" o conteúdo é alinhado a direita e com "margin-right" o conteúdo é alinhado a esquerda. Ambos de forma automáica.
+
+		Position: static
+
+			É o valor default de todo elemento HTML, ou seja, ele vai seguir o fluxo comum da sua página.
+
+		Position: relative
+
+			Utilizando o position Relative o elemento passa a aceitar as propriedades Top, Bottom, Left e Right. Com elas voc?pode alterar o posicionamento do elemento. Por exemplo, se a propriedade Top fosse aplicada em um elemento com Position Absolute o valor de Top não teria nenhum efeito sobre o elemento aplicado.
+			O position relative posiciona o elemento em relação a si mesmo. Ou seja, o ponto zero será o canto superior esquerdo, e ele começará contar a partir dali.
+
+		Position: absolute
+
+			O position Absolute ?um grande quebra galho no Css. Com ele voc?pode posicionar qualquer elemento de acordo com o elemento pai que tenha um position diferente de static.
+			Cuidado ao utilizar o positon absolute pois ele deixa de fazer parte do fluxo comum do documento.
+
+		Position: fixed
+
+			O position fixed se comporta de maneira semelhante ao absolute, deixando de fazer parte do fluxo comum da p?ina. Por? a grande diferen? dele ?que ele passa a se referenciar ao window do seu navegador, ou seja, a tela.
+			A medida que a p?ina ?rolada, o elemento continua fixo na posi?o que voc?definiu e o conte?do da p?ina rola normalmente.
+
+	Tipos de Elementos
+
+		inline
+
+			Ficam "em linha", um ao lado do outro;
+			Tamanho definido pelo conte?do.
+			<a> <span> <img>
+
+		block
+
+			Preenchem todo o espa? dispon?el na tela;
+			Ficam um abaixo do outro.
+			<h1> <div>
+
+		inline-block
+
+			H?ridos;
+			Tamanho definido pelo conte?do;
+			Ficam um abaixo do outro.
+			display: inline-block;
+
+	Links
+
+		Precisam ser declarados na seguinte ordem: a, a:link, a:visited, a:hover, a:active - sendo que ?poss?el omitir quaisquer um deles.
+
+	CSS Externo
+
+		<link rel="stylesheet" type="text/css" href="">
+        
+Seção 06 - HTML5
+
+    Compatibilidade c/ HTML5
+        
+        ?um plugin javascript para criar compatibilidade dos elementos do HTML5 com navegadores mais antigos, como o IE.
+        
+    Label
+    
+        ?considerada uma boa pr?ica associar label ao outros elementos. Atrav? dessa associa?o, ao clicar sobre o label o foco ser?alterado para onde o label apontar. Isso aumenta a ?ea de sele?o de alguns elementos.
+
+Seção 07 - CSS3
+
+	box-sizing: border-box
+
+		O box model tradicional da especifica?o tem uma regra bastante confusa: diz que a propriedade width trata do tamanho do conte?do do elemento, n? considerando seu padding e border (e a mesma coisa com a altura).
+
+		Isso quer dizer que, se voc?quiser que um elemento ocupe metade da p?ina mas com uma borda de 10px, n? funciona fazer border: 10px solid #555; width:50%. O tamanho final do elemento ter?20px mais metade do tamanho do pai.
+
+		Por padr?, todos os elementos t? o valor  box-sizing: content-box o que indica que o tamanho dele ?definido pelo seu conte?do apenas -- em outras palavras, ?o tal box model padr? que vimos antes. Mas podemos trocar por  box-sizing: border-box que indica que o tamanho agora levar?em conta at?a borda -- ou seja, o width ser?a soma do conte?do com a borda e o padding.
+
+			http://sergiolopes.org/css-box-sizing-border-box/
+
+	background-image: url("")
+
+		N? funciona. Tem que usar background: url("")
+
+Seção 08 - Bootstrap
+
+	Mediaqueries (mediaqueri.es)
+
+		Permite criar design responsivos, ou seja, que respondem às mudanças de tamanho de tela.
+
+	Bootstrap (getbootstrap.com)
+
+		Framework para desenvolver design responsivos.
+		Tem a capacidade de adequar o CSS a diversos dispositivos utilizando media queries.
+
+	Sistema de Grid
+
+		Exemplos de Grids com Bootstrap: https://getbootstrap.com/examples/grid/
+
+		Mais opções de Grids: http://getbootstrap.com/css/
+
+	ARIA (Accessible Rich Internet Applications)
+
+		É um atributo html utilizado para prover acessibilidade para os leitores de tela, isto é, facilitar o uso de páginas por pessoas com capacidade visual reduzida.
+
+	Projeto - Spotify
+
+		Selecionar itens filhos diretos no CSS
+
+			O caractere ">" indica que a estrutura a sua direita é a filha direta da estrutura à sua esquerda.
+
+			Por exemplo, ".navbar-inverse>li>a" formata todos os links que são filhos imediatos dos itens da lista, desde que ambos, tanto "li" quanto "a", estejam dentro de "navbar-inverse".
+
+			Outro exemplo parecido, ".navbar-inverse>li a". Neste caso, todos os links filhos diretos e indiretos de "navbar-inverse" e "li" são formatados. Isto é, mesmo que haja uma sublista dentro de um dos itens, seus links também serão formatados.
+
+		Ocultar barra de rolamento (x e y)
+
+			No CSS, as propriedades "overflow-y" e "overflow-x" com o valor "hidden;" ocultam a barra de rolamento vertical e horizontal, respectivamente.
+
+			Essa propriedade deve ser aplicada no body da página
+
+		Escondendo elementos
+
+			Recursos úteis para esconder conteúdos:
+
+				https://getbootstrap.com/docs/3.3/css/#responsive-utilities
+
+			Usar as combinações de classes sempre com block ou inline. Por exemplo:
+
+				.visible-xs-block
+				.hidden-lg-block
+				.visible-md-inline
+
+	Media Queries
+
+		Utilidade:
+
+			Permite detectar em qual tipo de dispositivo/mídia o site está sendo exibido.
+
+			É por meio das Medias Queries que o Bootstrap realiza as adaptações e exibições para cada tipo de dispositivo.
+
+		Tipos de mídias:
+
+			all – todos os dispositivos (PADRÃO)
+			aural – sintetizadores de voz
+			braille – leitores de Braille
+			embossed – impressoras de Braille
+			handheld – dispositivos de mão. Por exemplo: celulares com telas pequenas.
+			print – impressoras convencionais
+			projection – apresentações de slides
+			screen – monitores coloridas
+			tty – teleimpressores e terminais
+			tv – televisores
+
+		Exemplo de utilização:
+
+			<link rel="stylesheet" media="print" href="print.css" /> 
+
+		Exemplos de resoluções de telas:
+
+			320 pixels – Smartphones no modo retrato.
+			480 pixels – Smartphones no modo paisagem.
+			600 pixels – Tablets pequenos. Ex: Amazon Kindle (600×800)
+			768 pixels – Tablets maiores em modo retrato. Ex: iPad (768×1024)
+			1024 pixels – Tablets maiores em modo paisagem, monitores antigos.
+			1200 pixels – Monitores wide.
+			
+		Links sistema de grid:
+
+			http://getbootstrap.com/css/#grid
+
+		Exemplos de utilização media queries:
+
+			@media screen and (max-width: 767px) {
+			 
+			}
+
+		Link do recurso respond.js:
+
+			https://cdnjs.com/libraries/respond.js/
+
+			É preciso incluir o endereço abaixo na página, pois alguns navegadores podem não ter suporte a este recurso do CSS3.
+
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"> </script>
+
+			A estrutura padrão do Bootstrap já inclui esse recurso, então se esse for o caso não se faz necessário adicionar o conteúdo da tag acima.
+
+	Overflow
+
+		Link de referência:
+
+			https://www.w3schools.com/cssref/pr_pos_overflow.asp
+
+		Propriedade e Valores
+
+			overflow: <visible, hidden, scroll, auto>
+
+				Visible: permite que o conteúdo fique fora da "caixa";
+				Hidden: esconde o conteúdo caso não caiba na "caixa";
+				Scroll: exibe uma barra de rolagem caso o conteúdo não caiba na "caixa";
+				Auto: exibe uma barra de rolagem caso o conteúdo não caiba na "caixa", mas a barra some caso o conteúdo caiba. Ao contrário do que acontece com Scroll.
+
+Seção 09 - JavaScript
+
+	Eventos
+
+		Mouse
+
+			onclick 			clique do mouse
+			ondblclick			dubplo clique do mouse
+			onmousedown			ao pressionar o motão esquerdo do mosue
+			onmouseover			ao passar o mouse por cima
+			onmouseout			ao tirar o mouse de cima
+
+		Teclado
+
+			onkeydown			aperta qualquer tecla
+			onkeypress			aperta qualquer tecla com exceção de ctrl, shift, alt, esc, etc.
+			onkeyup				soltar uma tecla
+
+		Janela
+
+			onload				executado quando todos os elementos da págian foram carregados (elemento do body)
+			onresize			executado quando a janela sofre qualquer tipo de redimensionamento
+
+		Formulários
+
+			onfocus				
+			onblur
+			onchange
+
+Seção 10 - jQuery
+
+	Eventos
+
+		$(document).ready(function(){ body... });
+
+			É executado somente quando o DOM estiver totalmente carregado na página;
+			Evita que eventos sejam associados a objetos que não existem.
+
+		Mouse
+
+			.click()				acionado no clique do mouse
+			.dblclick()				acionado no clique duplo do mouse
+			.mousedown()			acionado no clique do mouse (soltando ou não o botão)
+			.mouseover()			acionado quando o cursor do mouse sobrepõe um elemento da página
+			.mouseout()				acionado quando o cursor do mouse sai da área de um elemento da página
+
+		Teclado
+
+			.keydown()				acionado quando uma tecla é pressionada
+			.keypress()				acionado quando uma tecla é pressionada, com exceção de teclas como CTRL, SHIFT, ESC, ALT, ...
+			.keyup()				acionado no momento em que a tecla é liberada
+
+		Formulários
+
+			.focus()				acionado quando o elemento recebe o foco do cursor
+			.blur()					acionado quando o elemento perde o foco do cursor
+			.change()				acionado quando o estado do elemento é modificado
+
+Seção 12 - PHP
+
+	Arrays
+
+		Os índices podem ser numéricos ou alfanuméricos.
+
+		Um array pode guardar valores de diversos tipos.
+
+		Para imprimir um array inteiro de uma vez pode-se utilizar:
+
+			var_dump($array_sem_indice);
+			print_r($array_sem_indice);

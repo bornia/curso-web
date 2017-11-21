@@ -1,0 +1,17 @@
+CTRL + P				Procurar arquivos
+
+CTRL + D				Encontrar palavras iguais
+
+CTRL + L				Seleciona toda a linha (uma a uma)
+
+CTRL + SHIFT + J		Selecionar derivados/filhos
+
+CTRL + R				Ir direto a uma função
+
+CTRL + SHIFT + D 		Copiar toda a linha e cola abaixo
+
+CTRL + SETA				Sobe/desce a página
+
+CTRL + SHIFT + SETA		Troca linhas
+
+ALT + .					Fecha tag

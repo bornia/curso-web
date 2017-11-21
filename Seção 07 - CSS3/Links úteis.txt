@@ -1,0 +1,43 @@
+Os recursos aprendidos nessa seção, são recursos novos e não são suportados por todos os browser, antes e utilizar um recurso é interessante verificar se o mesmo é suportado no navegador que pretende exibir os elementos, veja abaixo uma lista com as novas propriedades CSS3 e o suporte por cada navegados:
+
+https://www.w3schools.com/cssref/css3_browsersupport.asp
+
+
+Normalize, Box Sizing & Cantos arredondados - Links úteis
+Seção 7, aula 83
+	
+	Normalize CSS
+
+		https://necolas.github.io/normalize.css/
+
+	Propriedade box-sizing:
+
+		http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
+
+	Cantos arredondados:
+
+		http://www.w3schools.com/css/css3_borders.asp
+
+
+Degradês & Transparências (Arquivos necessários)
+Seção 7, aula 86
+
+	Links Úteis
+
+		Transparências:
+			http://www.w3schools.com/css/css3_colors.asp
+
+		Degradês:
+			http://www.w3schools.com/css/css3_gradients.asp
+
+
+Sombras - Links úteis
+Seção 7, aula 88
+	
+	Sombras em textos:
+
+		http://www.w3schools.com/cssref/css3_pr_text-shadow.asp
+
+	Sombras em caixas:
+
+		http://www.w3schools.com/cssref/css3_pr_box-shadow.asp
