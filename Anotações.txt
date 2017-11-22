@@ -266,3 +266,6 @@ Seção 12 - PHP
 
 			var_dump($array_sem_indice);
 			print_r($array_sem_indice);
+			var_export($array_sem_indice);
+
+Seção 14 - MySQL
