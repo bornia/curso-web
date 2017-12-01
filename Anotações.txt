@@ -268,4 +268,28 @@ Seção 12 - PHP
 			print_r($array_sem_indice);
 			var_export($array_sem_indice);
 
-Seção 14 - MySQL
+Seção 16 - Ajax (Asynchronous Javascript and XML)
+
+	O que é
+
+		Técnica de programação que utiliza as tecnologias JavaScript e XML;
+		Potencializou a criação do conceito de web 2.0;
+
+	O que são requisições síncronas e assíncronas
+
+		Requisição síncrona se refere ao tipo de requisição na qual o browser fica esperando uma resposta do servidor, ou seja, cada requisição deve ser finalizada para que outra seja executada.
+
+		Requisição assíncrona se refere ao tipo de requição na qual o browser é capaz de disparar diversas requisições sem que haja necessariamente um sincronismo entre elas. Ou seja, é possível realizar requisições de forma paralela sendo que a resposta será retornada quando ela estiver pronta.
+		Permite que o browser não precise executar refreshes para que um novo elemento seja carregado na tela. Por exemplo, o Google Maps não recarrega a página quando se arrasta o destino de um percurso para outro.
+
+	O Objeto XMLHttpRequest
+
+		É o objeto javascript que permite implementar o conceito Ajax de requisições assíncronas.
+
+		Difere a forma como é instanciado dependendo do navegador:
+			IE5 e inferiores
+				ActiveXObject("Msxml2.XMLHTTP")
+			IE5 e IE6
+				ActiveXObject("Microsoft.XMLHTTP")
+			IE7, Firefox, Chrome, Safari e Opera
+				XMLHttpRequest()
