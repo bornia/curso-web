@@ -3,5 +3,8 @@ CREATE DATABASE twitter_clone;
 USE twitter_clone;
 
 CREATE TABLE dbname (
-	
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	usuario VARCHAR(50) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	senha VARCHAR(32) NOT NULL
 );

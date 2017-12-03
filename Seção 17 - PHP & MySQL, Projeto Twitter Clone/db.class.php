@@ -10,14 +10,14 @@ class db {
 		// Estabelecer conexão
 		$con = mysqli_connect($this->host, $this->user, $this->pass, $this->database);
 
-		// Configurar charset entre PHP e MySQL
-		mysqli_set_charset($con, 'utf8');
-
 		// Verifica se houve algum erro de conexão
 		// Se o valor for != 0 houve algum erro
 		if(mysqli_connect_errno()) {
-			echo 'Erro ao tentar se conectar com o banco de dados: ' . mysqli_connect_error();
+			exit('Erro ao tentar se conectar com o banco de dados: ' . mysqli_connect_error());
 		}
+
+		// Configurar charset entre PHP e MySQL
+		mysqli_set_charset($con, 'utf8');
 
 		return $con;
 	}
