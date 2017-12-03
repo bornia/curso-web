@@ -13,7 +13,7 @@ class db {
 		// Verifica se houve algum erro de conexão
 		// Se o valor for != 0 houve algum erro
 		if(mysqli_connect_errno()) {
-			exit('Erro ao tentar se conectar com o banco de dados: ' . mysqli_connect_error());
+			die('Erro ao tentar se conectar com o banco de dados: ' . mysqli_connect_error());
 		}
 
 		// Configurar charset entre PHP e MySQL
