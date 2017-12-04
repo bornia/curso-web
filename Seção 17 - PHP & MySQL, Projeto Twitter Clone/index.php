@@ -1,3 +1,8 @@
+<?php
+	// Informa se houve algum erro no login
+	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -34,12 +39,29 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="">
+	            <li class="<?= $erro == 1 ? 'open' : '' ?>">
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
 				    		<p>Você possui uma conta?</h3>
 				    		<br />
+
+				    		<?php
+				    			if($erro == 1) {
+				    				$alert =
+					    				"<div class='alert alert-warning' role='alert'>
+		    								<button type='button' class='close' data-dismiss='alert' aria-label='Fechar'>
+		          								<span aria-hidden='true'> &times; </span>
+									        </button>
+									        <div>
+									          <strong> Usuário e/ou senha incorretos! </strong>
+									        </div>
+								      	</div>";
+
+								    echo $alert;
+				    			}
+				    		?>
+
 							<form method="post" action="validar_acesso.php" id="formLogin">
 								<div class="form-group">
 									<input type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário" />

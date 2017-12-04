@@ -14,8 +14,14 @@ $sql = "SELECT usuario, senha FROM usuarios WHERE usuario = '$user[0]' AND senha
 $res = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 // Transforma o resultado da consulta em array
-$data = mysqli_fetch_array($res, MYSQLI_NUM);
+$data = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
-var_dump($data);
+// Verifica se a consulta retornou algum usuário (!= NULL)
+if(isset($data)) {
+	echo "Usuário existe.";
+} else {
+	// Redireciona para outra página passando um parâmetro
+	header('Location: index.php?erro=1');
+}
 
 ?>
