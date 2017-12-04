@@ -17,7 +17,32 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	
 		<script>
-			// código javascript						
+			$(document).ready(function() {
+				/** Verifica se usuário e senha foram preenchidos */
+				$('#btn_login').click(function(event) {
+					// Controla se o formulário será enviado
+					var campo_vazio = false;
+
+					// Verfica usuário
+					if($('#campo_usuario').val() == '') {
+						$('#campo_usuario').css('border-color', '#A94442');
+						campo_vazio = true;
+					} else {
+						$('#campo_usuario').css('border-color', '#CCC');
+					}
+
+					// Verifica senha
+					if($('#campo_senha').val() == '') {
+						$('#campo_senha').css('border-color', '#A94442');
+						campo_vazio = true;
+					} else {
+						$('#campo_senha').css('border-color', '#CCC');
+					}
+
+					// Controla envio de formulário
+					if(campo_vazio) return false;
+				});						
+			});					
 		</script>
 	</head>
 
