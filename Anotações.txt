@@ -293,3 +293,24 @@ Seção 16 - Ajax (Asynchronous Javascript and XML)
 				ActiveXObject("Microsoft.XMLHTTP")
 			IE7, Firefox, Chrome, Safari e Opera
 				XMLHttpRequest()
+
+Seção 17 - PHP & MySQL, Projeto Twitter Clone
+
+	Seções
+
+		A variável superglobal $_SESSION['name'] fica disponível em qualquer página da aplicação desde que uma seção tenha sido iniciada.
+
+		A recomendação é sempre ter o comando para iniciar uma seção como primeiro comando do script php.
+
+	Criptografia
+
+		Algoritmos de Hashs
+
+			MD5
+				Mão única (não permite descriptografia)
+				Hash de tamanho fixo (32 caracteres)
+			SHA1
+				Mão única (não permite descriptografia)
+				Hash de tamanho fixo (40 caracteres)
+			BASE64
+				Mão dupla (permite descriptografia)

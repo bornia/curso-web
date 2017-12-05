@@ -10,7 +10,7 @@ $user = array($_POST['usuario'], $_POST['senha']);
 $con = (new db())->conecta_mysql();
 
 // Prepara a query
-$sql = "SELECT usuario, email FROM usuarios WHERE usuario = '$user[0]' AND senha = '$user[1]';";
+$sql = "SELECT usuario, email FROM usuarios WHERE usuario = '$user[0]' AND senha = md5('$user[1]');";
 
 // Executa a query
 $res = mysqli_query($con, $sql) or die(mysqli_error($con));
