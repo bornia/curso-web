@@ -1,3 +1,7 @@
+<?php
+	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -45,6 +49,23 @@
 	    	<div class="col-md-4">
 	    		<h3>Inscreva-se já.</h3>
 	    		<br />
+	    		
+	    		<?php
+	    			if($erro == 1) {
+	    				$alert =
+		    				"<div class='alert alert-warning' role='alert'>
+								<button type='button' class='close' data-dismiss='alert' aria-label='Fechar'>
+      								<span aria-hidden='true'> &times; </span>
+						        </button>
+						        <div>
+						          <strong> Usuário e/ou senha já existem! </strong>
+						        </div>
+					      	</div>";
+
+					    echo $alert;
+	    			}
+	    		?>
+
 				<form method="post" action="registra_usuario.php" id="formCadastrarse">
 					<div class="form-group">
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">

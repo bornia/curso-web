@@ -18,10 +18,8 @@ $data = mysqli_query($con, $sql);
 
 // Verifica se houve algum retorno, isto é, se já existe o usuário ou o e-mail digitado
 if(mysqli_fetch_array($data, MYSQLI_ASSOC)) {
-	echo 'Usuário e/ou e-mail já cadastrados.';
-
 	// Redireciona para uma página após 2 segundos
-	header('Refresh: 2; url= inscrevase.php');
+	header('Refresh: 2; url= inscrevase.php?erro=1&');
 } else {
 	/*Inclui um novo usuário */
 
