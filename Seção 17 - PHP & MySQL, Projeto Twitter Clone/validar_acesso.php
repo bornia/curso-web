@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once('db.class.php');
 
 $user = array($_POST['usuario'], $_POST['senha']);
@@ -8,7 +10,7 @@ $user = array($_POST['usuario'], $_POST['senha']);
 $con = (new db())->conecta_mysql();
 
 // Prepara a query
-$sql = "SELECT usuario, senha FROM usuarios WHERE usuario = '$user[0]' AND senha = '$user[1]';";
+$sql = "SELECT usuario, email FROM usuarios WHERE usuario = '$user[0]' AND senha = '$user[1]';";
 
 // Executa a query
 $res = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -18,7 +20,12 @@ $data = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 // Verifica se a consulta retornou algum usuário (!= NULL)
 if(isset($data)) {
-	echo "Usuário existe.";
+	// Atribui o nome do usuário e o seu e-mail para a superglobal SESSION
+	$_SESSION['usuario'] = $data['usuario'];
+	$_SESSION['email'] = $data['email'];
+
+	// Redireciona para outra página
+	header('Location: home.php');
 } else {
 	// Redireciona para outra página passando um parâmetro
 	header('Location: index.php?erro=1');
