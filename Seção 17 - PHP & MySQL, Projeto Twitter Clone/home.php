@@ -17,6 +17,18 @@
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/** Associa o evento de clique ao botão de Tweet */
+				$('#btn_tweet').click(function(event) {
+					// Verifica se o tweet não está em branco
+					if ($('#text_tweet').val().length > 0) {
+						// Preenchido
+					}
+				});
+			});
+		</script>
 	
 	</head>
 
@@ -70,9 +82,9 @@
 	    		<div class="panel panel-default">
 	    			<div class="panel-body">
 	    				<div class="input-group">
-	    					<input type="text" name="" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
+	    					<input id="text_tweet" type="text" name="" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
 	    					<span class="input-group-btn">
-	    						<button class="btn btn-default"> Tweet </button>
+	    						<button id="btn_tweet" class="btn btn-default"> Tweet </button>
 	    					</span>
 	    				</div>
 	    			</div>
