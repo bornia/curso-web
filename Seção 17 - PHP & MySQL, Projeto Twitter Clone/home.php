@@ -21,10 +21,28 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				/** Associa o evento de clique ao botão de Tweet */
-				$('#btn_tweet').click(function(event) {
+				$('#btn_tweet').click(function (event) {
 					// Verifica se o tweet não está em branco
 					if ($('#text_tweet').val().length > 0) {
-						// Preenchido
+						$.ajax({
+							url: 'inclui_tweet.php',
+							type: 'POST',
+							data: $('#form_tweet').serialize()
+						})
+
+						.done(function() {
+							$('#text_tweet').val('');
+							alert("Tweet incluído com sucesso!!!");
+						})
+
+						.fail(function() {
+							console.log("error");
+						})
+
+						.always(function() {
+							console.log("complete");
+						});
+						
 					}
 				});
 			});
@@ -81,12 +99,12 @@
 	    	<div class="col-md-6">
 	    		<div class="panel panel-default">
 	    			<div class="panel-body">
-	    				<div class="input-group">
-	    					<input id="text_tweet" type="text" name="" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
+	    				<form id="form_tweet" class="input-group">
+	    					<input id="text_tweet" type="text" name="texto_do_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
 	    					<span class="input-group-btn">
 	    						<button id="btn_tweet" class="btn btn-default"> Tweet </button>
 	    					</span>
-	    				</div>
+	    				</form>
 	    			</div>
 	    		</div>
 	    	</div>

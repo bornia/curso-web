@@ -10,7 +10,7 @@ $user = array($_POST['usuario'], $_POST['senha']);
 $con = (new db())->conecta_mysql();
 
 // Prepara a query
-$sql = "SELECT usuario, email FROM usuarios WHERE usuario = '$user[0]' AND senha = md5('$user[1]');";
+$sql = "SELECT id, usuario, email FROM usuarios WHERE usuario = '$user[0]' AND senha = md5('$user[1]');";
 
 // Executa a query
 $res = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -20,7 +20,8 @@ $data = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 // Verifica se a consulta retornou algum usuário (!= NULL)
 if(isset($data)) {
-	// Atribui o nome do usuário e o seu e-mail para a superglobal SESSION
+	// Atribui o id, o nome do usuário e o seu e-mail para a superglobal SESSION
+	$_SESSION['id_usuario'] = $data['id'];
 	$_SESSION['usuario'] = $data['usuario'];
 	$_SESSION['email'] = $data['email'];
 

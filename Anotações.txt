@@ -314,3 +314,12 @@ Seção 17 - PHP & MySQL, Projeto Twitter Clone
 				Hash de tamanho fixo (40 caracteres)
 			BASE64
 				Mão dupla (permite descriptografia)
+
+	Ajax
+
+		A função serialize()
+
+			Cria um json de todos os campos de um formulário, identificado pelo id, sendo necessário identificar cada campo por um name diferente, pois é por meio dele que o valor do campo poderá ser recuperado.
+
+			Por exemplo, $('#foo').serialize() recupera todos as informações do formulário cujo id é "foo" e os disponibiliza em json.
+
