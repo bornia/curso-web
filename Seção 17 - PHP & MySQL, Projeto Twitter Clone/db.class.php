@@ -3,7 +3,7 @@
 class db {
 	private $host = 'localhost';
 	private $user = 'root';
-	private $pass = '1234';
+	private $pass = '';
 	private $database = 'twitter_clone';
 
 	public function conecta_mysql() {
