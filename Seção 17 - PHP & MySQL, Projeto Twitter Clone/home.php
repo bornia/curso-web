@@ -41,10 +41,22 @@
 
 						.always(function() {
 							console.log("complete");
-						});
-						
+						});					
 					}
 				});
+
+				/** Atualiza a página de tweets do usuário */
+				function atualizaTweet() {
+					$.ajax({
+						url: 'get_tweet.php'
+					})
+
+					.done(function (data) {
+						$('#tweets').html(data);
+					});
+				};
+
+				atualizaTweet();
 			});
 		</script>
 	
@@ -106,6 +118,10 @@
 	    					</span>
 	    				</form>
 	    			</div>
+	    		</div>
+
+	    		<div id="tweets" class="list-group">
+	    			
 	    		</div>
 	    	</div>
 
