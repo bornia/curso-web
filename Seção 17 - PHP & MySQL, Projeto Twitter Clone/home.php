@@ -20,40 +20,32 @@
 
 		<script type="text/javascript">
 			$(document).ready(function() {
+
 				/** Associa o evento de clique ao botão de Tweet */
-				$('#btn_tweet').click(function (event) {
+				$('#btn_tweet').click(function () {
 					// Verifica se o tweet não está em branco
 					if ($('#text_tweet').val().length > 0) {
+						// Adiciona o tweet no banco de dados
 						$.ajax({
 							url: 'inclui_tweet.php',
 							type: 'POST',
-							data: $('#form_tweet').serialize()
-						})
-
-						.done(function() {
-							$('#text_tweet').val('');
-							alert("Tweet incluído com sucesso!!!");
-						})
-
-						.fail(function() {
-							console.log("error");
-						})
-
-						.always(function() {
-							console.log("complete");
-						});					
+							data: $('#form_tweet').serialize(),
+							success: function () {
+								$('#text_tweet').val('');
+								atualizaTweet();
+							}
+						});			
 					}
 				});
 
 				/** Atualiza a página de tweets do usuário */
 				function atualizaTweet() {
 					$.ajax({
-						url: 'get_tweet.php'
+						url: 'get_tweet.php',
+						success: function (data) {
+							$('#tweets').html(data);
+						}
 					})
-
-					.done(function (data) {
-						$('#tweets').html(data);
-					});
 				};
 
 				atualizaTweet();
@@ -120,9 +112,7 @@
 	    			</div>
 	    		</div>
 
-	    		<div id="tweets" class="list-group">
-	    			
-	    		</div>
+	    		<div id="tweets" class="list-group"> </div>
 	    	</div>
 
 			<div class="col-md-3">
