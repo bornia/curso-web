@@ -106,7 +106,7 @@
 	    				<form id="form_tweet" class="input-group">
 	    					<input id="text_tweet" type="text" name="texto_do_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
 	    					<span class="input-group-btn">
-	    						<button id="btn_tweet" class="btn btn-default"> Tweet </button>
+	    						<button type="button" id="btn_tweet" class="btn btn-default"> Tweet </button>
 	    					</span>
 	    				</form>
 	    			</div>
