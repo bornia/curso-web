@@ -22,33 +22,21 @@
 			$(document).ready(function() {
 
 				/** Associa o evento de clique ao botão de Tweet */
-				$('#btn_tweet').click(function () {
+				$('#btn_procurar_pessoa').click(function () {
 					// Verifica se o tweet não está em branco
-					if ($('#text_tweet').val().length > 0) {
+					if ($('#nome_pessoa').val().length > 0) {
 						// Adiciona o tweet no banco de dados
 						$.ajax({
-							url: 'inclui_tweet.php',
+							url: 'get_pessoas.php',
 							type: 'POST',
-							data: $('#form_tweet').serialize(),
-							success: function () {
-								$('#text_tweet').val('');
-								atualizaTweet();
+							data: $('#form_procurar_pessoas').serialize(),
+							success: function (data) {
+								$('#nome_pessoa').val('');
+								$('#pessoas').html(data);
 							}
 						});			
 					}
 				});
-
-				/** Atualiza a página de tweets do usuário */
-				function atualizaTweet() {
-					$.ajax({
-						url: 'get_tweet.php',
-						success: function (data) {
-							$('#tweets').html(data);
-						}
-					})
-				};
-
-				atualizaTweet();
 			});
 		</script>
 	
@@ -71,6 +59,7 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="home.php">Home</a></li>
 	            <li><a href="sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
@@ -103,23 +92,21 @@
 	    	<div class="col-md-6">
 	    		<div class="panel panel-default">
 	    			<div class="panel-body">
-	    				<form id="form_tweet" class="input-group">
-	    					<input id="text_tweet" type="text" name="texto_do_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140" />
+	    				<form id="form_procurar_pessoas" class="input-group">
+	    					<input id="nome_pessoa" type="text" name="nome_pessoa" class="form-control" placeholder="Quem você está procurando?" maxlength="140" />
 	    					<span class="input-group-btn">
-	    						<button type="button" id="btn_tweet" class="btn btn-default"> Tweet </button>
+	    						<button type="button" id="btn_procurar_pessoa" class="btn btn-default"> Procurar </button>
 	    					</span>
 	    				</form>
 	    			</div>
 	    		</div>
 
-	    		<div id="tweets" class="list-group"> </div>
+	    		<div id="pessoas" class="list-group"> </div>
 	    	</div>
 
 			<div class="col-md-3">
 				<div class="panel panel-default">
-					<div class="panel-body">
-						<h4> <a href="procurar_pessoas.php"> Procurar por pessoas </a> </h4>
-					</div>
+					<div class="panel-body"> </div>
 				</div>
 			</div>
 		</div>
