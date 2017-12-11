@@ -31,8 +31,27 @@
 							type: 'POST',
 							data: $('#form_procurar_pessoas').serialize(),
 							success: function (data) {
+								// Limpa o campo de busca
 								$('#nome_pessoa').val('');
+
+								// Imprime o resultado da busca
 								$('#pessoas').html(data);
+
+								/**  */
+								$('.btn_seguir').click(function() {
+									// Obtém o id do usuário a ser seguido
+									var id_usuario = $(this).data('id_usuario');
+									
+									//
+									$.ajax({
+										url: 'seguir.php',
+										type: 'POST',
+										data: {seguir_id_usuario: id_usuario}
+									})
+									.done(function() {
+										alert('Requisição efetuada com sucesso!');
+									});
+								});
 							}
 						});			
 					}

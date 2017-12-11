@@ -23,6 +23,12 @@ if ($res = mysqli_query($con, $sql)) {
 			"<a href='#' class='list-group-item'> " .
 				"<strong> " . $data['usuario'] . " </strong> " . 
 				"<small> " . $data['email'] . " </small> " .
+				"<p class='list-group-item-text pull-right'> " .
+					"<button type='button' class='btn btn-default btn_seguir' data-id_usuario='".$data['id']."'> " .
+						"Seguir " .
+					"</button> " .
+				"</p> " .
+				"<div class='clearfix'> </div> " .
 			"</a>";
 	}
 }
