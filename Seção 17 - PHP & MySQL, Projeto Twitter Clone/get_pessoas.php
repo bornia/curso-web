@@ -24,10 +24,10 @@ if ($res = mysqli_query($con, $sql)) {
 				"<strong> " . $data['usuario'] . " </strong> " . 
 				"<small> " . $data['email'] . " </small> " .
 				"<p class='list-group-item-text pull-right'> " .
-					"<button type='button' class='btn btn-default btn_seguir' data-id_usuario='".$data['id']."'> " .
+					"<button type='button' id='btn_seguir_".$data['id']."' class='btn btn-default btn_seguir' data-id_usuario='".$data['id']."'> " .
 						"Seguir " .
 					"</button> " .
-					"<button type='button' class='btn btn-primary deixar_btn_seguir' data-id_usuario='".$data['id']."'> " .
+					"<button type='button' id='btn_deixar_seguir_".$data['id']."' class='btn btn-primary deixar_btn_seguir' data-id_usuario='".$data['id']."' style='display: none;'> " .
 						"Deixar de Seguir " .
 					"</button> " .
 				"</p> " .

@@ -51,6 +51,10 @@
 									.done(function(data) {
 										alert('Requisição efetuada com sucesso!');
 									});
+
+									// Troca botão "Seguir" por "Deixar de Seguir"
+									$('#' + this.id).hide();
+									$('#btn_deixar_seguir_' + id_usuario).show();
 								});
 
 								/**  */
@@ -67,6 +71,10 @@
 									.done(function() {
 										alert('Requisição efetuada com sucesso!');
 									});
+
+									// Troca botão "Seguir" por "Deixar de Seguir"
+									$('#' + this.id).hide();
+									$('#btn_seguir_' + id_usuario).show();
 								});
 							}
 						});			
