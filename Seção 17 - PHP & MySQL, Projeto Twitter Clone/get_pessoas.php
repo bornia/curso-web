@@ -27,6 +27,9 @@ if ($res = mysqli_query($con, $sql)) {
 					"<button type='button' class='btn btn-default btn_seguir' data-id_usuario='".$data['id']."'> " .
 						"Seguir " .
 					"</button> " .
+					"<button type='button' class='btn btn-primary deixar_btn_seguir' data-id_usuario='".$data['id']."'> " .
+						"Deixar de Seguir " .
+					"</button> " .
 				"</p> " .
 				"<div class='clearfix'> </div> " .
 			"</a>";

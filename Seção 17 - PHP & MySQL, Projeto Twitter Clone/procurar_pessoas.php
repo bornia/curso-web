@@ -42,11 +42,27 @@
 									// Obtém o id do usuário a ser seguido
 									var id_usuario = $(this).data('id_usuario');
 									
-									//
+									// Adiciona seguidores
 									$.ajax({
 										url: 'seguir.php',
 										type: 'POST',
 										data: {seguir_id_usuario: id_usuario}
+									})
+									.done(function(data) {
+										alert('Requisição efetuada com sucesso!');
+									});
+								});
+
+								/**  */
+								$('.deixar_btn_seguir').click(function() {
+									// Obtém o id do usuário a ser seguido
+									var id_usuario = $(this).data('id_usuario');
+									
+									// Adiciona seguidores
+									$.ajax({
+										url: 'deixar_seguir.php',
+										type: 'POST',
+										data: {deixar_seguir_id_usuario: id_usuario}
 									})
 									.done(function() {
 										alert('Requisição efetuada com sucesso!');
