@@ -11,7 +11,7 @@ require_once('db.class.php');
 $con = (new db())->conecta_mysql();
 
 // Prepara a query
-$sql = "SELECT tweet, DATE_FORMAT(data_inclusao, '%d %b %Y %T') AS data_inclusao_formatada, usuario FROM tweet AS t JOIN usuarios AS u ON (t.id_usuario = u.id) WHERE id_usuario = " . $_SESSION['id_usuario'] . " ORDER BY data_inclusao DESC;";
+$sql = "SELECT tweet, DATE_FORMAT(data_inclusao, '%d %b %Y %T') AS data_inclusao_formatada, usuario FROM tweet AS t JOIN usuarios AS u ON (t.id_usuario = u.id) WHERE id_usuario = " . $_SESSION['id_usuario'] . " OR id_usuario IN (SELECT seguindo_id_usuario FROM usuarios_seguidores WHERE id_usuario = " . $_SESSION['id_usuario'] . ") ORDER BY data_inclusao DESC;";
 
 // Executa a query
 $res = mysqli_query($con, $sql) or die('Erro na consulta de tweets do banco de dados.');
