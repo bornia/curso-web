@@ -32,6 +32,7 @@ if ($res = mysqli_query($con, $sql)) {
 			$btn_seguir_display = 'block';
 		}
 
+		// Exibe as pessoas procuradas
 		echo
 			"<a href='#' class='list-group-item'> " .
 				"<strong> " . $data['usuario'] . " </strong> " . 

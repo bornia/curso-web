@@ -1,8 +1,16 @@
 <?php
-	session_start();
 
-	// Evita que alguém acesse uma página restrita, isto é, só quem fez login tem acesso
-	if(!isset($_SESSION['usuario'])) header('Location: index.php?erro=2');
+session_start();
+
+// Evita que alguém acesse uma página restrita, isto é, só quem fez login tem acesso
+if(!isset($_SESSION['usuario'])) {
+	header('Location: index.php?erro=2');
+}
+else {
+	$data_qtd_tweets = require_once('get_qtd_tweets.php');
+	$data_qtd_seguidores = require_once('get_qtd_seguidores.php');	
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -90,11 +98,11 @@
 	    				<hr/>
 
 	    				<div class="col-md-6">
-	    					TWEETS <br/> 1
+	    					TWEETS <br/> <?= $data_qtd_tweets ?>
 	    				</div>
 
 	    				<div class="col-md-6">
-	    					SEGUIDORES <br/> 1
+	    					SEGUIDORES <br/> <?= $data_qtd_seguidores ?>
 	    				</div>
 	    			</div>
 	    		</div>	
