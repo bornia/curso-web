@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Evita que alguém acesse uma página restrita, isto é, só quem fez login tem acesso
 if(!isset($_SESSION['usuario'])) {
 	header('Location: index.php?erro=2');
@@ -16,10 +18,11 @@ else {
 	// Executa e verifica se a query foi executada
 	if($res = mysqli_query($con, $sql)) {
 		$data = mysqli_fetch_array($res, MYSQLI_ASSOC);
-		return $data['qtd_seguidores'];
+		echo $data['qtd_seguidores'];
 	}
 	else {
-		return 'Erro ao consultar quantidade de seguidores.';
+		$erro = 'Erro ao consultar quantidade de seguidores.';
+		echo $erro;
 	}
 }
 

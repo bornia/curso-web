@@ -6,10 +6,6 @@ session_start();
 if(!isset($_SESSION['usuario'])) {
 	header('Location: index.php?erro=2');
 }
-else {
-	$data_qtd_tweets = require_once('get_qtd_tweets.php');
-	$data_qtd_seguidores = require_once('get_qtd_seguidores.php');	
-}
 
 ?>
 
@@ -29,11 +25,11 @@ else {
 		<script type="text/javascript">
 			$(document).ready(function() {
 
-				/** Associa o evento de clique ao botão de Tweet */
+				/** Associa o evento de clique ao botão de Procurar */
 				$('#btn_procurar_pessoa').click(function () {
-					// Verifica se o tweet não está em branco
+					// Verifica se o nome não está em branco
 					if ($('#nome_pessoa').val().length > 0) {
-						// Adiciona o tweet no banco de dados
+						// Obtém a(s) pessoa(s) procurada(s)
 						$.ajax({
 							url: 'get_pessoas.php',
 							type: 'POST',
@@ -45,7 +41,7 @@ else {
 								// Imprime o resultado da busca
 								$('#pessoas').html(data);
 
-								/**  */
+								/** Evento para seguir usuário */
 								$('.btn_seguir').click(function() {
 									// Obtém o id do usuário a ser seguido
 									var id_usuario = $(this).data('id_usuario');
@@ -55,9 +51,6 @@ else {
 										url: 'seguir.php',
 										type: 'POST',
 										data: {seguir_id_usuario: id_usuario}
-									})
-									.done(function(data) {
-										alert('Requisição efetuada com sucesso!');
 									});
 
 									// Troca botão "Seguir" por "Deixar de Seguir"
@@ -65,22 +58,19 @@ else {
 									$('#btn_deixar_seguir_' + id_usuario).show();
 								});
 
-								/**  */
+								/** Evento para deixar de seguir usuário */
 								$('.deixar_btn_seguir').click(function() {
 									// Obtém o id do usuário a ser seguido
 									var id_usuario = $(this).data('id_usuario');
 									
-									// Adiciona seguidores
+									// Retira seguidores
 									$.ajax({
 										url: 'deixar_seguir.php',
 										type: 'POST',
 										data: {deixar_seguir_id_usuario: id_usuario}
-									})
-									.done(function() {
-										alert('Requisição efetuada com sucesso!');
 									});
 
-									// Troca botão "Seguir" por "Deixar de Seguir"
+									// Troca botão "Deixar de Seguir" por "Seguir"
 									$('#' + this.id).hide();
 									$('#btn_seguir_' + id_usuario).show();
 								});
@@ -88,6 +78,30 @@ else {
 						});			
 					}
 				});
+
+				/** Atualiza a quantidade de seguidores no painel */
+				function atualiza_painel_seguidores() {
+					$.ajax({
+						url: 'get_qtd_seguidores.php',
+						type: 'POST',
+						success: function(data) {
+							$('#qtd_seguidores').html(data);
+						}
+					});
+				}
+
+				/** Atualiza a quantidade de tweets no painel */
+				function atualiza_painel_tweet() {
+					$.ajax({
+						url: 'get_qtd_tweets.php',
+						success: function(data) {
+							$('#qtd_tweets').html(data);
+						}
+					});
+				}
+
+				atualiza_painel_seguidores();
+				atualiza_painel_tweet();
 			});
 		</script>
 	
@@ -130,11 +144,11 @@ else {
 	    				<hr/>
 
 	    				<div class="col-md-6">
-	    					TWEETS <br/> <?= $data_qtd_tweets ?>
+	    					TWEETS <br/> <span id="qtd_tweets"> </span>
 	    				</div>
 
 	    				<div class="col-md-6">
-	    					SEGUIDORES <br/> <?= $data_qtd_seguidores ?>
+	    					SEGUIDORES <br/> <span id="qtd_seguidores"> </span>
 	    				</div>
 	    			</div>
 	    		</div>	

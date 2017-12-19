@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // Evita que alguém acesse uma página restrita, isto é, só quem fez login tem acesso
@@ -12,15 +13,14 @@ else {
 	$con = (new db())->conecta_mysql();
 
 	// Prepara a query
-	$sql = "SELECT COUNT(*) AS qtd_tweets FROM tweet WHERE id_usuario = " . $_SESSION['id_usuario'] . ";";
+	$sql = "DELETE FROM tweet WHERE id_tweet = " . $_POST['id_btn_exclui_tweet'] . ";";
 
-	// Executa e verifica se a query foi executada
-	if($res = mysqli_query($con, $sql)) {
-		$data = mysqli_fetch_array($res, MYSQLI_ASSOC);
-		echo $data['qtd_tweets'];
+	// Verifica e executa a query
+	if(!mysqli_query($con, $sql)) {
+		echo 'Erro ao excluir tweet';
 	}
 	else {
-		echo 'Erro ao consultar quantidade de tweets';
+		echo $_POST['id_btn_exclui_tweet'];
 	}
 }
 

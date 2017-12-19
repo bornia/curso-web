@@ -6,10 +6,6 @@ session_start();
 if(!isset($_SESSION['usuario'])) {
 	header('Location: index.php?erro=2');
 }
-else {
-	$data_qtd_tweets = require_once('get_qtd_tweets.php');
-	$data_qtd_seguidores = require_once('get_qtd_seguidores.php');	
-}
 
 ?>
 
@@ -41,6 +37,7 @@ else {
 							success: function () {
 								$('#text_tweet').val('');
 								atualizaTweet();
+								atualiza_painel_tweet();
 							}
 						});			
 					}
@@ -52,11 +49,48 @@ else {
 						url: 'get_tweet.php',
 						success: function (data) {
 							$('#tweets').html(data);
+
+							/** Evento para excluir tweet */
+							$('.btn_excluir_tweet').click(function () {
+								var id_botao = this.id;
+
+								$.ajax({
+									url: 'exclui_tweet.php',
+									type: 'POST',
+									data: {id_btn_exclui_tweet: $(this).data('id_tweet')},
+									success: function(id_tweet) {
+										$('#tweet_' + id_tweet).remove();
+										atualiza_painel_tweet();
+									}
+								});
+							});
 						}
-					})
+					});
 				};
 
+				/** Atualiza a quantidade de tweets no painel */
+				function atualiza_painel_tweet() {
+					$.ajax({
+						url: 'get_qtd_tweets.php',
+						success: function(data) {
+							$('#qtd_tweets').html(data);
+						}
+					});
+				}
+
+				/** Atualiza a quantidade de seguidores no painel */
+				function atualiza_painel_seguidores() {
+					$.ajax({
+						url: 'get_qtd_seguidores.php',
+						success: function(data) {
+							$('#qtd_seguidores').html(data);
+						}
+					});
+				}	
+
 				atualizaTweet();
+				atualiza_painel_tweet();
+				atualiza_painel_seguidores();
 			});
 		</script>
 	
@@ -98,11 +132,11 @@ else {
 	    				<hr/>
 
 	    				<div class="col-md-6">
-	    					TWEETS <br/> <?= $data_qtd_tweets ?>
+	    					TWEETS <br/> <span id="qtd_tweets"> </span>
 	    				</div>
 
 	    				<div class="col-md-6">
-	    					SEGUIDORES <br/> <?= $data_qtd_seguidores ?>
+	    					SEGUIDORES <br/> <span id="qtd_seguidores"> </span>
 	    				</div>
 	    			</div>
 	    		</div>	
